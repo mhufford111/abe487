@@ -1,3 +1,6 @@
 #!/bin/bash
 
-echo "OK"
+
+echo "Hello, World!"
+
+
