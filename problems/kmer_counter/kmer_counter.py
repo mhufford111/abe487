@@ -5,6 +5,7 @@ from collections import defaultdict
 import sys, string
 import os
 import os.path
+from pathlib import Path
 
 args = sys.argv[1:]
 if len(args) < 2:
@@ -19,6 +20,7 @@ else:
 
 if(kmer_size<=0):
         print('Kmer size "{}" must be > 0'.format(kmer_size))
+	sys.exit(1)
 
 input = args[1]
 
@@ -26,6 +28,7 @@ nkmers = len(input) - kmer_size + 1
 
 if kmer_size > len(input):
 	print('There are no () mers in "{}"'.format(kmer_size, args[1]))
+	sys.exit(1)
 
 kmers = {}
 
@@ -50,4 +53,4 @@ while i < nkmers:
 print('{}'.format(input))
 
 for x in sorted(kmers):
-	print x, kmers[x]
+	print(x, kmers[x])
