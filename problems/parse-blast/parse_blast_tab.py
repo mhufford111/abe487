@@ -28,12 +28,10 @@ def main():
       number2 = float(row['evalue'])
       if number >= int_arg and int_arg2 == None :
            print(row['qseqid'] + '\t' + row['sseqid'] +'\t' + row['pident'] + '\t' +  row['evalue'])
-      if not int_arg2 == None and int_arg == 0:
-           if number2 <= int_arg2 :
-                print(row['qseqid'] + '\t' + row['sseqid'] +'\t' + row['pident'] + '\t' +  row['evalue'])
-      if not int_arg == 0 and not int_arg2 == None:
-           if number2 <= int_arg2 and number >= int_arg:
-                print(row['qseqid'] + '\t' + row['sseqid'] +'\t' + row['pident'] + '\t' +  row['evalue'])
+      if not int_arg2 == None and int_arg == 0 and number2 <= int_arg2:
+           print(row['qseqid'] + '\t' + row['sseqid'] +'\t' + row['pident'] + '\t' +  row['evalue'])
+      if not int_arg == 0 and not int_arg2 == None and number2 <= int_arg2 and number >= int_arg:
+           print(row['qseqid'] + '\t' + row['sseqid'] +'\t' + row['pident'] + '\t' +  row['evalue'])
 
 
 # --------------------------------------------------
