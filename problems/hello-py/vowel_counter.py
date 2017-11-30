@@ -1,24 +1,27 @@
 #!/usr/bin/env python3
-from collections import Counter
-import sys, string
+"""count the vowels in a word"""
+
+import sys
 import os
 
 args = sys.argv
 
-if len(args) < 2:
-        script = os.path.basename(args[0])
-        print('Usage: vowel_counter.py STRING'.format(script))
-        sys.exit(1)
+if len(args) != 2:
+    print('Usage: {} STRING'.format(os.path.basename(args[0])))
+    sys.exit(1)
 
 word = args[1]
-numVowels = 0
-#vowels = list('a,e,i,o,u')
-vowels = 'aeiou'
 
-for char in word:
-        if char in vowels:
-                numVowels += 1
+count = 0
+for vowel in "aeiou":
+    count += word.count(vowel)
 
-verb = 'is ' if numVowels == 1 else 'are '
-noun = 'vowel ' if numVowels == 1 else 'vowels '
-print('There ' + verb + str(numVowels) + ' ' +  noun + 'in "' + word + '."')
+#count = sum([word.count(v) for v in "aeiou"])
+
+#count = sum(map(word.count, "aeiou"))
+
+print('There {} {} vowel{} in "{}."'.format(
+    'are' if count > 1 or count == 0 else 'is',
+    count,
+    '' if count == 1 else 's',
+    word))
